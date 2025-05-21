@@ -36,7 +36,7 @@ Browse products, view details, add to cart, and manage your shopping cart with p
 ### 1. **Clone the repository**
 ```bash
 git clone https://github.com/yash12000/ShopEase
-cd mini-ecommerce-app
+cd ShopEase
 ```
 
 ### 2. **Install dependencies**
