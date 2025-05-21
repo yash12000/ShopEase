@@ -67,13 +67,13 @@ npm start
 ```
 mini-ecommerce-app/
 ├── app/
-│   └── index.tsx         # App entry point and navigation
+│   └── index.tsx         
 ├── components/
-│   ├── Cart.js           # Cart screen
-│   ├── ProductDetail.js  # Product detail screen
-│   └── ProductList.js    # Product list screen
+│   ├── Cart.js           
+│   ├── ProductDetail.js  
+│   └── ProductList.js    
 ├── contexts/
-│   └── CartContext.js    # Cart state management (Context API)
+│   └── CartContext.js    
 ├── package.json
 └── ...
 ```
@@ -94,23 +94,6 @@ mini-ecommerce-app/
 ## 📦 API Reference
 
 - [Fake Store API](https://fakestoreapi.com/products)
-
----
-
-## ⚠️ Notes
-
-- **Web support:**  
-  Use the app UI for navigation. Direct URL navigation (e.g., `/product/1`) is not supported with React Navigation.  
-  For full web routing, consider migrating to [Expo Router](https://docs.expo.dev/router/introduction/).
-
-- **Cart badge:**  
-  The cart tab shows a badge with the total number of items in your cart.
-
----
-
-## 📸 Screenshots
-
-> _Add screenshots here for Product List, Product Detail, and Cart screens!_
 
 ---
 
