@@ -1,6 +1,6 @@
-# 🛒 Mini E-commerce App
+# 🛒 ShopEase App
 
-A simple, modern, and responsive mini e-commerce app built with **React Native** and **Expo**.  
+A simple, modern, and responsive shopease app built with **React Native** and **Expo**.  
 Browse products, view details, add to cart, and manage your shopping cart with persistent storage.
 
 ---
@@ -35,7 +35,7 @@ Browse products, view details, add to cart, and manage your shopping cart with p
 
 ### 1. **Clone the repository**
 ```bash
-git clone https://github.com/yash12000/mini-ecommerce-app
+git clone https://github.com/yash12000/ShopEase
 cd mini-ecommerce-app
 ```
 
@@ -62,7 +62,7 @@ npm start
 ## 🗂️ Project Structure
 
 ```
-mini-ecommerce-app/
+ShopEase/
 ├── app/
 │   └── index.tsx         
 ├── components/
