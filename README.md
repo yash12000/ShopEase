@@ -23,9 +23,6 @@ Browse products, view details, add to cart, and manage your shopping cart with p
   - See the total price  
   - Cart state is saved with local persistence (AsyncStorage)
 
-- **Cart Badge:**  
-  Instantly see the number of items in your cart with a badge on the cart tab.
-
 - **State Management:**  
   Uses React Context API for global cart state.
 
@@ -38,7 +35,7 @@ Browse products, view details, add to cart, and manage your shopping cart with p
 
 ### 1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/yash12000/mini-ecommerce-app
 cd mini-ecommerce-app
 ```
 
@@ -58,7 +55,7 @@ npm start
 - **On an emulator:**  
   Press `a` (Android) or `i` (iOS) in the terminal
 - **On the web:**  
-  Press `w` in the terminal (UI navigation only; direct URL navigation is not supported)
+  Press `w` in the terminal
 
 ---
 
@@ -82,12 +79,12 @@ mini-ecommerce-app/
 
 ## 🛠️ Tech Stack
 
-- **React Native** (with Expo)
-- **React Navigation** (stack & bottom tabs)
-- **Context API** (cart state)
-- **AsyncStorage** (cart persistence)
-- **Axios** (API requests)
-- **Fake Store API** (product data)
+- **React Native** : with Expo
+- **React Navigation** : Stack & bottom tabs
+- **Context API** : Cart state
+- **AsyncStorage** : Cart persistence
+- **Axios** : API requests
+- **Fake Store API** : Product data
 
 ---
 
@@ -99,7 +96,7 @@ mini-ecommerce-app/
 
 ## 📝 License
 
-MIT
+This project is licensed under the MIT License.
 
 ---
 
