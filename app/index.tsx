@@ -56,22 +56,31 @@ function CartHeaderIcon({ navigation }: CartHeaderIconProps) {
 }
 
 const ProductStack = () => (
-  <Stack.Navigator>
+  <Stack.Navigator
+    screenOptions={({ navigation }) => ({
+      headerRight: () => <CartHeaderIcon navigation={navigation} />,
+    })}
+  >
     <Stack.Screen
       name="ProductList"
       component={ProductList}
-      options={({ navigation }) => ({
+      options={{
         title: "ShopEase",
-        headerRight: () => <CartHeaderIcon navigation={navigation} />,
-      })}
+      }}
     />
     <Stack.Screen
       name="ProductDetail"
       component={ProductDetail}
-      options={({ navigation }) => ({
+      options={{
         title: "Product Details",
-        headerRight: () => <CartHeaderIcon navigation={navigation} />,
-      })}
+      }}
+    />
+    <Stack.Screen
+      name="Cart"
+      component={Cart}
+      options={{
+        title: "Shopping Cart",
+      }}
     />
   </Stack.Navigator>
 );
@@ -79,15 +88,10 @@ const ProductStack = () => (
 function MainTabs() {
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={({ route, navigation }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           if (route.name === "Products") {
             const iconName = focused ? "home" : "home-outline";
-            return (
-              <Ionicons name={iconName as any} size={size} color={color} />
-            );
-          } else if (route.name === "Cart") {
-            const iconName = focused ? "cart" : "cart-outline";
             return (
               <Ionicons name={iconName as any} size={size} color={color} />
             );
@@ -101,11 +105,6 @@ function MainTabs() {
         name="Products"
         component={ProductStack}
         options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="Cart"
-        component={Cart}
-        options={{ title: "Shopping Cart" }}
       />
     </Tab.Navigator>
   );
