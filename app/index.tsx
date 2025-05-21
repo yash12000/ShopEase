@@ -1,34 +1,61 @@
-import { View, FlatList } from 'react-native';
-import { useEffect, useState } from 'react';
-import ProductCard from '../components/ProductCard';
-import axios from 'axios';
-import { useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import Cart from '../components/Cart';
+import ProductDetail from '../components/ProductDetail';
+import ProductList from '../components/ProductList';
+import { CartProvider } from '../contexts/CartContext';
 
-type Product = {
-  id: number;
-  [key: string]: any;
-};
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-export default function HomeScreen() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const router = useRouter();
-
-  useEffect(() => {
-    axios.get('https://fakestoreapi.com/products')
-      .then(res => setProducts(res.data))
-      .catch(console.error);
-  }, []);
-
-  return (
-    <FlatList
-      data={products}
-      keyExtractor={item => item.id.toString()}
-      renderItem={({ item }) => (
-        <ProductCard
-          item={item}
-          onPress={() => router.push({ pathname: `/product/${item.id}` })}
-        />
-      )}
+const ProductStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="ProductList"
+      component={ProductList}
+      options={{ title: 'Products' }}
     />
+    <Stack.Screen
+      name="ProductDetail"
+      component={ProductDetail}
+      options={{ title: 'Product Details' }}
+    />
+  </Stack.Navigator>
+);
+
+export default function App() {
+  return (
+    <CartProvider>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Products') {
+              iconName = focused ? 'home' : 'home-outline';
+            } else if (route.name === 'Cart') {
+              iconName = focused ? 'cart' : 'cart-outline';
+            }
+
+            return <Ionicons name={iconName as any} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: '#2196F3',
+          tabBarInactiveTintColor: 'gray',
+        })}
+      >
+        <Tab.Screen
+          name="Products"
+          component={ProductStack}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Cart"
+          component={Cart}
+          options={{ title: 'Shopping Cart' }}
+        />
+      </Tab.Navigator>
+    </CartProvider>
   );
 }

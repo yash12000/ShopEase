@@ -6,7 +6,6 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  // Load cart from AsyncStorage on app start
   useEffect(() => {
     loadCart();
   }, []);
