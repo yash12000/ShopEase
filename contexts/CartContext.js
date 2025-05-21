@@ -1,5 +1,5 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
@@ -12,20 +12,20 @@ export const CartProvider = ({ children }) => {
 
   const loadCart = async () => {
     try {
-      const savedCart = await AsyncStorage.getItem('cart');
+      const savedCart = await AsyncStorage.getItem("cart");
       if (savedCart) {
         setCart(JSON.parse(savedCart));
       }
     } catch (error) {
-      console.error('Error loading cart:', error);
+      console.error("Error loading cart:", error);
     }
   };
 
   const saveCart = async (newCart) => {
     try {
-      await AsyncStorage.setItem('cart', JSON.stringify(newCart));
+      await AsyncStorage.setItem("cart", JSON.stringify(newCart));
     } catch (error) {
-      console.error('Error saving cart:', error);
+      console.error("Error saving cart:", error);
     }
   };
 
@@ -33,7 +33,7 @@ export const CartProvider = ({ children }) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
       let newCart;
-      
+
       if (existingItem) {
         newCart = prevCart.map((item) =>
           item.id === product.id
@@ -43,7 +43,7 @@ export const CartProvider = ({ children }) => {
       } else {
         newCart = [...prevCart, { ...product, quantity: 1 }];
       }
-      
+
       saveCart(newCart);
       return newCart;
     });
@@ -94,7 +94,7 @@ export const CartProvider = ({ children }) => {
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
-    throw new Error('useCart must be used within a CartProvider');
+    throw new Error("useCart must be used within a CartProvider");
   }
   return context;
 };

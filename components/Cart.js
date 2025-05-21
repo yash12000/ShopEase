@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import {
-    FlatList,
-    Image,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-} from 'react-native';
-import { useCart } from '../contexts/CartContext';
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { useCart } from "../contexts/CartContext";
 
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart, getCartTotal } = useCart();
@@ -72,18 +72,18 @@ const Cart = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   listContainer: {
     padding: 16,
   },
   cartItem: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 16,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 8,
     padding: 12,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   itemImage: {
     width: 80,
     height: 80,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
   itemDetails: {
     flex: 1,
@@ -103,77 +103,77 @@ const styles = StyleSheet.create({
   },
   itemTitle: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: "500",
     marginBottom: 4,
   },
   itemPrice: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#2196F3',
+    fontWeight: "bold",
+    color: "#2196F3",
     marginBottom: 8,
   },
   quantityContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   quantityButton: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: "#f0f0f0",
     width: 30,
     height: 30,
     borderRadius: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   quantityButtonText: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   quantity: {
     marginHorizontal: 12,
     fontSize: 16,
   },
   removeButton: {
-    position: 'absolute',
+    position: "absolute",
     top: 8,
     right: 8,
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: '#ff4444',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#ff4444",
+    justifyContent: "center",
+    alignItems: "center",
   },
   removeButtonText: {
-    color: 'white',
+    color: "white",
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   totalContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: 16,
     borderTopWidth: 1,
-    borderTopColor: '#eee',
+    borderTopColor: "#eee",
   },
   totalText: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   totalAmount: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: '#2196F3',
+    fontWeight: "bold",
+    color: "#2196F3",
   },
   emptyCart: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   emptyCartText: {
     fontSize: 18,
-    color: '#666',
+    color: "#666",
   },
 });
 
-export default Cart; 
+export default Cart;

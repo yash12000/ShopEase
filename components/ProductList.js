@@ -1,15 +1,15 @@
-import { useNavigation } from '@react-navigation/native';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import {
-    ActivityIndicator,
-    FlatList,
-    Image,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-} from 'react-native';
+  ActivityIndicator,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -22,11 +22,11 @@ const ProductList = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('https://fakestoreapi.com/products');
+      const response = await axios.get("https://fakestoreapi.com/products");
       setProducts(response.data);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching products:', error);
+      console.error("Error fetching products:", error);
       setLoading(false);
     }
   };
@@ -34,7 +34,7 @@ const ProductList = () => {
   const renderProduct = ({ item }) => (
     <TouchableOpacity
       style={styles.productCard}
-      onPress={() => navigation.navigate('ProductDetail', { product: item })}
+      onPress={() => navigation.navigate("ProductDetail", { product: item })}
     >
       <Image source={{ uri: item.image }} style={styles.productImage} />
       <View style={styles.productInfo}>
@@ -75,16 +75,16 @@ const styles = StyleSheet.create({
   },
   loadingContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   productCard: {
     flex: 1,
     margin: 8,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
     padding: 10,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -94,36 +94,36 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   productImage: {
-    width: '100%',
+    width: "100%",
     height: 150,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
   productInfo: {
     marginTop: 8,
   },
   productTitle: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: "500",
     marginBottom: 4,
   },
   productPrice: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#2196F3',
+    fontWeight: "bold",
+    color: "#2196F3",
   },
   ratingContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 4,
   },
   ratingText: {
-    color: '#FFD700',
+    color: "#FFD700",
     marginRight: 4,
   },
   ratingCount: {
-    color: '#666',
+    color: "#666",
     fontSize: 12,
   },
 });
 
-export default ProductList; 
+export default ProductList;
