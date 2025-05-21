@@ -26,7 +26,7 @@ export default function HomeScreen() {
       renderItem={({ item }) => (
         <ProductCard
           item={item}
-          onPress={() => router.push(`/product/${item.id}`)}
+          onPress={() => router.push({ pathname: `/product/${item.id}` })}
         />
       )}
     />
