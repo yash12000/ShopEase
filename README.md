@@ -1,50 +1,123 @@
-# Welcome to your Expo app 👋
+# 🛒 Mini E-commerce App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple, modern, and responsive mini e-commerce app built with **React Native** and **Expo**.  
+Browse products, view details, add to cart, and manage your shopping cart with persistent storage.
 
-## Get started
+---
 
-1. Install dependencies
+## ✨ Features
 
-   ```bash
-   npm install
-   ```
+- **Product List:**  
+  Browse a grid of products fetched from a remote API (Fake Store API).
 
-2. Start the app
+- **Product Details:**  
+  View detailed information, images, price, and ratings for each product.
 
-   ```bash
-   npx expo start
-   ```
+- **Add to Cart:**  
+  Add products to your cart from the product detail page.
 
-In the output, you'll find options to open the app in a
+- **Cart Management:**  
+  - View all items in your cart  
+  - Adjust item quantities  
+  - Remove items  
+  - See the total price  
+  - Cart state is saved with local persistence (AsyncStorage)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Cart Badge:**  
+  Instantly see the number of items in your cart with a badge on the cart tab.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **State Management:**  
+  Uses React Context API for global cart state.
 
-## Get a fresh project
+- **Navigation:**  
+  Bottom tab navigation for Products and Cart, with stack navigation for product details.
 
-When you're ready, run:
+---
 
+## 🚀 Getting Started
+
+### 1. **Clone the repository**
 ```bash
-npm run reset-project
+git clone <your-repo-url>
+cd mini-ecommerce-app
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. **Install dependencies**
+```bash
+npm install
+```
 
-## Learn more
+### 3. **Start the development server**
+```bash
+npm start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 4. **Run the app**
+- **On your phone:**  
+  Scan the QR code with [Expo Go](https://expo.dev/client) (Android/iOS)
+- **On an emulator:**  
+  Press `a` (Android) or `i` (iOS) in the terminal
+- **On the web:**  
+  Press `w` in the terminal (UI navigation only; direct URL navigation is not supported)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 🗂️ Project Structure
 
-Join our community of developers creating universal apps.
+```
+mini-ecommerce-app/
+├── app/
+│   └── index.tsx         # App entry point and navigation
+├── components/
+│   ├── Cart.js           # Cart screen
+│   ├── ProductDetail.js  # Product detail screen
+│   └── ProductList.js    # Product list screen
+├── contexts/
+│   └── CartContext.js    # Cart state management (Context API)
+├── package.json
+└── ...
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 🛠️ Tech Stack
+
+- **React Native** (with Expo)
+- **React Navigation** (stack & bottom tabs)
+- **Context API** (cart state)
+- **AsyncStorage** (cart persistence)
+- **Axios** (API requests)
+- **Fake Store API** (product data)
+
+---
+
+## 📦 API Reference
+
+- [Fake Store API](https://fakestoreapi.com/products)
+
+---
+
+## ⚠️ Notes
+
+- **Web support:**  
+  Use the app UI for navigation. Direct URL navigation (e.g., `/product/1`) is not supported with React Navigation.  
+  For full web routing, consider migrating to [Expo Router](https://docs.expo.dev/router/introduction/).
+
+- **Cart badge:**  
+  The cart tab shows a badge with the total number of items in your cart.
+
+---
+
+## 📸 Screenshots
+
+> _Add screenshots here for Product List, Product Detail, and Cart screens!_
+
+---
+
+## 📝 License
+
+MIT
+
+---
+
+**Happy shopping! 🛍️**
