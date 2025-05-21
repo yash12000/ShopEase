@@ -1,34 +1,34 @@
-import { StyleSheet, Text, View } from "react-native";
+import { View, FlatList } from 'react-native';
+import { useEffect, useState } from 'react';
+import ProductCard from '../components/ProductCard';
+import axios from 'axios';
+import { useRouter } from 'expo-router';
 
-export default function Page() {
+type Product = {
+  id: number;
+  [key: string]: any;
+};
+
+export default function HomeScreen() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    axios.get('https://fakestoreapi.com/products')
+      .then(res => setProducts(res.data))
+      .catch(console.error);
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
-      </View>
-    </View>
+    <FlatList
+      data={products}
+      keyExtractor={item => item.id.toString()}
+      renderItem={({ item }) => (
+        <ProductCard
+          item={item}
+          onPress={() => router.push(`/product/${item.id}`)}
+        />
+      )}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    padding: 24,
-  },
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
-  },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
-  },
-});

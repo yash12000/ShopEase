@@ -1,31 +1,21 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import ProductList from './views/ProductList';
 import ProductDetail from './views/ProductDetail';
 import CartScreen from './views/CartScreen';
 import { CartProvider } from './contexts/CartContext';
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
-
-function HomeTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Products" component={ProductList} />
-      <Tab.Screen name="Cart" component={CartScreen} />
-    </Tab.Navigator>
-  );
-}
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <CartProvider>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeTabs} options={{ headerShown: false }} />
-          <Stack.Screen name="ProductDetail" component={ProductDetail} options={{ title: 'Details' }} />
+        <Stack.Navigator initialRouteName="ProductList">
+          <Stack.Screen name="ProductList" component={ProductList} />
+          <Stack.Screen name="ProductDetail" component={ProductDetail} />
+          <Stack.Screen name="Cart" component={CartScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </CartProvider>
