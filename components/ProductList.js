@@ -11,15 +11,26 @@ import {
   View,
 } from "react-native";
 
+/**
+ * ProductList Component
+ * Displays a grid of products fetched from the Fake Store API
+ * Each product shows its image, title, price, and rating
+ */
 const ProductList = () => {
+  // State for storing products and loading status
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
+  // Fetch products when component mounts
   useEffect(() => {
     fetchProducts();
   }, []);
 
+  /**
+   * Fetches products from the Fake Store API
+   * Updates the products state and loading status
+   */
   const fetchProducts = async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
@@ -31,6 +42,10 @@ const ProductList = () => {
     }
   };
 
+  /**
+   * Renders each product card in the grid
+   * @param {Object} item - The product data
+   */
   const renderProduct = ({ item }) => (
     <TouchableOpacity
       style={styles.productCard}
@@ -44,16 +59,17 @@ const ProductList = () => {
         <Text style={styles.productPrice}>${item.price}</Text>
         <View style={styles.ratingContainer}>
           <Text style={styles.ratingText}>★ {item.rating.rate}</Text>
-          <Text style={styles.ratingCount}>({item.rating.count})</Text>
+          <Text style={styles.ratingCount}>({item.rating.count} ratings)</Text>
         </View>
       </View>
     </TouchableOpacity>
   );
 
+  // Show loading indicator while fetching products
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#2196F3" />
       </View>
     );
   }
@@ -69,6 +85,7 @@ const ProductList = () => {
   );
 };
 
+// Styles for the ProductList component
 const styles = StyleSheet.create({
   container: {
     padding: 10,

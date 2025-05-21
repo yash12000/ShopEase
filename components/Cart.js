@@ -9,9 +9,18 @@ import {
 } from "react-native";
 import { useCart } from "../contexts/CartContext";
 
+/**
+ * Cart Component
+ * Displays all items in the shopping cart
+ * Allows users to adjust quantities, remove items, and see the total price
+ */
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart, getCartTotal } = useCart();
 
+  /**
+   * Renders each item in the cart
+   * @param {Object} item - The cart item data
+   */
   const renderCartItem = ({ item }) => (
     <View style={styles.cartItem}>
       <Image source={{ uri: item.image }} style={styles.itemImage} />
@@ -45,6 +54,7 @@ const Cart = () => {
     </View>
   );
 
+  // Show empty cart message if cart is empty
   if (cart.length === 0) {
     return (
       <View style={styles.emptyCart}>
@@ -69,6 +79,7 @@ const Cart = () => {
   );
 };
 
+// Styles for the Cart component
 const styles = StyleSheet.create({
   container: {
     flex: 1,

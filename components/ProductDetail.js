@@ -9,6 +9,11 @@ import {
 } from "react-native";
 import { useCart } from "../contexts/CartContext";
 
+/**
+ * ProductDetail Component
+ * Displays detailed information about a selected product
+ * Shows image, title, price, rating, description, and add to cart button
+ */
 const ProductDetail = ({ route }) => {
   const { product } = route.params;
   const { addToCart } = useCart();
@@ -23,7 +28,7 @@ const ProductDetail = ({ route }) => {
         <View style={styles.ratingContainer}>
           <Text style={styles.ratingText}>★ {product.rating.rate}</Text>
           <Text style={styles.ratingCount}>
-            ({product.rating.count} reviews)
+            ({product.rating.count} ratings)
           </Text>
         </View>
 
